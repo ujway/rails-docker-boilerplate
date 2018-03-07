@@ -1,0 +1,35 @@
+version: '2'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-dev
+    container_name: rails_web
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && rails s"
+    environment:
+      RAILS_ENV: development
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: 'hoge'
+      MYSQL_HOST: db
+    volumes:
+      - .:/var/www
+    ports:
+      - '4567:3000'
+    links:
+      - db
+
+  db:
+    image: mysql:5.7.19
+    container_name: rails_db
+    ports:
+      - '4568:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'hoge'
+    volumes_from:
+      - dbdata
+
+  dbdata:
+    image: busybox
+    volumes:
+     - /var/lib/mysql
+
