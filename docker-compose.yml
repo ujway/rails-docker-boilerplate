@@ -8,9 +8,9 @@ services:
     command: /bin/sh -c "rm -f tmp/pids/server.pid && rails s"
     environment:
       RAILS_ENV: development
-      MYSQL_USERNAME: root
-      MYSQL_PASSWORD: 'hoge'
-      MYSQL_HOST: db
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: hoge
+      DATABASE_HOST: db
     volumes:
       - .:/var/www
     ports:
@@ -24,7 +24,7 @@ services:
     ports:
       - '4568:3306'
     environment:
-      MYSQL_ROOT_PASSWORD: 'hoge'
+      MYSQL_ROOT_PASSWORD: hoge
     volumes:
       - mysql-data:/var/lib/mysql
 
