@@ -16,5 +16,4 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['DATABASE_NAME'] %>
-  host: <%= ENV['DATABASE_HOST'] %>
+  database: rails-docker-boilerplate_production
