@@ -65,3 +65,6 @@ http://localhost:4569/
 ### APIの仕様
 - Swagger定義
     - ``` doc/swagger.yaml ```
+
+## License
+This software is released under the MIT License, see LICENSE.txt.
