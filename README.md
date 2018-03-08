@@ -34,12 +34,12 @@ docker-compose exec web rails db:migrate
 
 example:
 
-1.Rails
-http://localhost:4567
-(DBのホスト: localhost:4568)
-
-2.Swagger UI（./doc/swagger.yamlの内容を表示）
-http://localhost:4569/
+1. Rails
+- http://localhost:4567
+  - DBのホスト: localhost:4568
+  
+2. Swagger UI（./doc/swagger.yamlの内容を表示）
+- http://localhost:4569/
 
 ## Development Memos
 `docker-compose exec web [Command]`でコンテナ外でコマンドが実行可能ですが、  
