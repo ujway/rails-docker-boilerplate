@@ -28,6 +28,16 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
 
+  swagger_ui:
+    image: swaggerapi/swagger-ui
+    container_name: swagger_ui
+    volumes:
+      - ./doc/swagger.yaml:/usr/share/nginx/html/swagger.yaml:ro
+    environment:
+      API_URL: ./swagger.yaml
+    ports:
+      - "4569:8080"
+
 volumes:
   mysql-data:
     driver: local
