@@ -53,17 +53,17 @@ example:
     - ``` docker-compose exec web [Command] ```
 
 ### Rails
-- Model or Controllerの作成
-    - ``` docker-compose exec web rails g [model|controller] [ModelName|ControllerName]```を実行
-- Migrationの作成
-    - ``` docker-compose exec web rails g migration [MigrationName] ```を実行
-    - 生成された``` db/migrate/{yyyymmddhhmmss}_{migration_name}.rb ```にchange/up/downを記載
-    - ``` docker-compose exec web rails db:migrate ```を実行
-- Migrationのリセット
-    - ``` docker-compose exec web rails db:migrate:reset```を実行
+- Model or Controllerを作成する
+    - ``` docker-compose exec web rails g [model|controller] [ModelName|ControllerName]```を実行する
+- Migrationを作成する
+    - ``` docker-compose exec web rails g migration [MigrationName] ```を実行する
+    - 生成された``` db/migrate/{yyyymmddhhmmss}_{migration_name}.rb ```にchange/up/downを記載する
+    - ``` docker-compose exec web rails db:migrate ```を実行する
+- Migrationをリセットする
+    - ``` docker-compose exec web rails db:migrate:reset```を実行する
 
-### APIの仕様
-- Swagger定義
+### API Definition
+- Swaggerの定義を編集する
     - ``` doc/swagger.yaml ```
 
 ## License
