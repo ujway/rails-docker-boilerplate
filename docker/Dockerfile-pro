@@ -18,3 +18,4 @@ COPY Gemfile ${APP_ROOT}/Gemfile
 COPY Gemfile.lock ${APP_ROOT}/Gemfile.lock
 RUN bundle config build.nokogiri --use-system-libraries
 RUN bundle install --jobs=4
+COPY . ${APP_ROOT}
