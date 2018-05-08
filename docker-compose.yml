@@ -19,7 +19,7 @@ services:
       - db
 
   db:
-    image: mysql:5.7.19
+    image: mysql:5.7.22
     container_name: rails_db
     ports:
       - '4568:3306'

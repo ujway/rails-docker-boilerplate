@@ -1,8 +1,13 @@
-FROM ruby:2.5.0
+FROM ruby:2.5.1
 LABEL maintainer satoyuji <satoyu313@gmail.com>
 
 ENV LANG C.UTF-8
 ENV APP_ROOT /var/www
+WORKDIR $APP_ROOT
+ENV RAILS_ENV=production
+# set editor for secrets:edit
+ENV EDITOR=vim
+
 WORKDIR $APP_ROOT
 
 # Prepare modules
@@ -10,12 +15,15 @@ RUN apt-get update -qq && \
     apt-get install -y \
     build-essential \
     libpq-dev \
-    mysql-client \
+    vim \
+    less \
     nodejs
 
 # Setup Rails
 COPY Gemfile ${APP_ROOT}/Gemfile
-COPY Gemfile.lock ${APP_ROOT}/Gemfile.lock
+#COPY Gemfile.lock ${APP_ROOT}/Gemfile.lock
 RUN bundle config build.nokogiri --use-system-libraries
 RUN bundle install --jobs=4
-COPY . ${APP_ROOT}
+RUN echo 'export PS1="[\[\e[1;34m\]\u\[\e[00m\]@\[\e[0;32m\]\h\[\e[00m\] \[\e[1;34m\]\W\[\e[00m\]]$ "' >> /root/.bashrc
+
+EXPOSE 3000
